@@ -23,6 +23,10 @@ export default function save({ attributes }) {
 			{...blockProps}
 			tagName='p'
 			value={attributes.content}
-			style={{textAlign: attributes.alignment}}/>
+			style={{
+				textAlign: attributes.alignment,
+				backgroundColor: attributes.backgroundColor,
+				color: attributes.textColor
+			}} />
 	);
 }

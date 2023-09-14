@@ -11,7 +11,14 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import { useBlockProps, RichText, AlignmentToolbar, BlockControls } from '@wordpress/block-editor';
+import {
+	useBlockProps,
+	RichText,
+	AlignmentToolbar,
+	BlockControls,
+	InspectorControls,
+	PanelColorSettings
+} from '@wordpress/block-editor';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -41,8 +48,33 @@ export default function Edit({ attributes, setAttributes }) {
 			alignment: newAlign === undefined ? 'none' : newAlign,
 		})
 	}
+
+	const onChangeBackgroundColor = (newBackgroundColor) => {
+		setAttributes({ backgroundColor: newBackgroundColor })
+	}
+
+	const onChangeTextColor = (newTextColor) => {
+		setAttributes({ textColor: newTextColor })
+	}
 	return (
 		<>
+			<InspectorControls>
+				<PanelColorSettings
+					title={__('Color settings', 'custom-block')}
+					initialOpen={false}
+					colorSettings={[
+						{
+							value: attributes.textColor,
+							onChange: onChangeTextColor,
+							label: __('Text color', 'custom-block')
+						}, {
+							value: attributes.backgroundColor,
+							onChange: onChangeBackgroundColor,
+							label: __('Background color', 'custom-block')
+						}
+					]}
+				/>
+			</InspectorControls>
 			<BlockControls>
 				<AlignmentToolbar value={attributes.alignment} onChange={onChangeAlignment} />
 			</BlockControls>
@@ -53,7 +85,11 @@ export default function Edit({ attributes, setAttributes }) {
 				allowedFormats={['core/bold', 'core/italic']}
 				value={attributes.content}
 				placeholder={__('Write your text...')}
-				style={{ textAlign: attributes.alignment }}
+				style={{
+					textAlign: attributes.alignment,
+					backgroundColor: attributes.backgroundColor,
+					color: attributes.textColor
+				}}
 			/>
 		</>
 	);

@@ -18,6 +18,12 @@
 		"align": {
 			"type": "string",
 			"default": "none"
+		},
+		"backgroundColor": {
+			"type": "string"
+		},
+		"textColor": {
+			"type": "string"
 		}
 	},
 	"supports": {
