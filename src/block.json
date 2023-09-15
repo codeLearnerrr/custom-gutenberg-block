@@ -24,6 +24,18 @@
 		},
 		"textColor": {
 			"type": "string"
+		},
+		"cbLink": {
+			"type": "string",
+			"default": ""
+		},
+		"linkLabel": {
+			"type": "string",
+			"default": "Check it out!"
+		},
+		"hasLinkNofollow": {
+			"type": "boolean",
+			"default": false
 		}
 	},
 	"supports": {

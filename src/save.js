@@ -16,17 +16,31 @@ import { useBlockProps, RichText } from '@wordpress/block-editor';
  * @return {WPElement} Element to render.
  */
 export default function save({ attributes }) {
-	const blockProps = useBlockProps.save()
+	const blockProps = useBlockProps.save({
+		className: `has-text-align-${attributes.alignment}`
+	})
 
 	return (
-		<RichText.Content
+		<div
 			{...blockProps}
-			tagName='p'
-			value={attributes.content}
-			style={{
-				textAlign: attributes.alignment,
-				backgroundColor: attributes.backgroundColor,
-				color: attributes.textColor
-			}} />
+			style={{ backgroundColor: attributes.backgroundColor }}
+		>
+			<RichText.Content
+				tagName='p'
+				value={attributes.content}
+				style={{
+					textAlign: attributes.alignment,
+					color: attributes.textColor
+				}}
+			/>
+			<p>
+				<a
+					href={attributes.cbLink}
+					className="cb-button"
+					rel={attributes.hasLinkNofollow ? "nofollow" : "noopener noreferrer"}>
+					{attributes.linkLabel}
+				</a>
+			</p>
+		</div>
 	);
 }

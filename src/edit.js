@@ -20,6 +20,14 @@ import {
 	PanelColorSettings
 } from '@wordpress/block-editor';
 
+import {
+	TextControl,
+	PanelBody,
+	PanelRow,
+	ToggleControl,
+	ExternalLink
+} from '@wordpress/components'
+
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
  * Those files can contain any CSS code that gets applied to the editor.
@@ -56,6 +64,18 @@ export default function Edit({ attributes, setAttributes }) {
 	const onChangeTextColor = (newTextColor) => {
 		setAttributes({ textColor: newTextColor })
 	}
+
+	const onChangeCBLink = (newCBLink) => {
+		setAttributes({ cbLink: newCBLink === undefined ? '' : newCBLink })
+	}
+
+	const onChangeLinkLabel = (newLinkLabel) => {
+		setAttributes({ linkLabel: newLinkLabel === undefined ? '' : newLinkLabel })
+	}
+
+	const toggleNofollow = () => {
+		setAttributes({ hasLinkNofollow: !attributes.hasLinkNofollow })
+	}
 	return (
 		<>
 			<InspectorControls>
@@ -74,23 +94,66 @@ export default function Edit({ attributes, setAttributes }) {
 						}
 					]}
 				/>
+				<PanelBody
+					title={__('Link Settings')}
+					initialOpen={true}
+				>
+					<PanelRow>
+						<fieldset>
+							<TextControl
+								label={__('CB Link', 'custom-block')}
+								value={attributes.cbLink}
+								onChange={onChangeCBLink}
+								help={__('Add your Academy link', 'custom-block')}
+							/>
+						</fieldset>
+					</PanelRow>
+					<PanelRow>
+						<fieldset>
+							<TextControl
+								label={__('Link label', 'custom-block')}
+								value={attributes.linkLabel}
+								onChange={onChangeLinkLabel}
+								help={__('Add link label', 'custom-block')}
+							/>
+						</fieldset>
+					</PanelRow>
+					<PanelRow>
+						<fieldset>
+							<ToggleControl
+								label="Add rel = nofollow"
+								help={attributes.hasLinkNofollow ? 'Has rel nofollow.' : 'No rel nofollow.'}
+								checked={attributes.hasLinkNofollow}
+								onChange={toggleNofollow}
+							/>
+						</fieldset>
+					</PanelRow>
+				</PanelBody>
 			</InspectorControls>
 			<BlockControls>
 				<AlignmentToolbar value={attributes.alignment} onChange={onChangeAlignment} />
 			</BlockControls>
-			<RichText
-				{...blockProps}
-				tagName='p'
-				onChange={onChangeContent}
-				allowedFormats={['core/bold', 'core/italic']}
-				value={attributes.content}
-				placeholder={__('Write your text...')}
-				style={{
-					textAlign: attributes.alignment,
-					backgroundColor: attributes.backgroundColor,
-					color: attributes.textColor
-				}}
-			/>
+			<div {...blockProps}>
+				<RichText
+					tagName='p'
+					onChange={onChangeContent}
+					allowedFormats={['core/bold', 'core/italic']}
+					value={attributes.content}
+					placeholder={__('Write your text...')}
+					style={{
+						textAlign: attributes.alignment,
+						backgroundColor: attributes.backgroundColor,
+						color: attributes.textColor
+					}}
+				/>
+				<ExternalLink
+					href={attributes.cbLink}
+					className='cb-button'
+					rel={attributes.hasLinkNofollow ? 'nofollow' : ""}
+				>
+					{attributes.linkLabel}
+				</ExternalLink>
+			</div>
 		</>
 	);
 }
