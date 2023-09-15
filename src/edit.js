@@ -133,7 +133,8 @@ export default function Edit({ attributes, setAttributes }) {
 			<BlockControls>
 				<AlignmentToolbar value={attributes.alignment} onChange={onChangeAlignment} />
 			</BlockControls>
-			<div {...blockProps}>
+			<div {...blockProps}
+				style={{ backgroundColor: attributes.backgroundColor, }}>
 				<RichText
 					tagName='p'
 					onChange={onChangeContent}
@@ -142,7 +143,6 @@ export default function Edit({ attributes, setAttributes }) {
 					placeholder={__('Write your text...')}
 					style={{
 						textAlign: attributes.alignment,
-						backgroundColor: attributes.backgroundColor,
 						color: attributes.textColor
 					}}
 				/>
