@@ -1,55 +1,42 @@
-=== Custom Block ===
-Contributors:      The WordPress Contributors
-Tags:              block
-Tested up to:      6.1
-Stable tag:        0.1.0
-License:           GPL-2.0-or-later
-License URI:       https://www.gnu.org/licenses/gpl-2.0.html
+# Custom Gutenberg block
 
-Example block scaffolded with Create Block tool.
+This project contains two custom gutenberg blocks for wordpress built using pure PHP and no plugins.
 
-== Description ==
-
-This is the long description. No limit, and you can use Markdown (as well as in the following sections).
-
-For backwards compatibility, if this section is missing, the full length of the short description will be used, and
-Markdown parsed.
-
-== Installation ==
-
-This section describes how to install the plugin and get it working.
-
-e.g.
-
-1. Upload the plugin files to the `/wp-content/plugins/custom-block` directory, or install the plugin through the WordPress plugins screen directly.
-1. Activate the plugin through the 'Plugins' screen in WordPress
+![custom-blocks](https://github.com/codeLearnerrr/custom-gutenberg-block/assets/44307139/5cd4138f-6c8e-4685-9408-c74a0a222da6)
 
 
-== Frequently Asked Questions ==
+### Features
+- fully editable text
+- customizable text color
+- customizable backgrond color
+- contains two types of blocks
+  - one with only text
+  - another with text and image
+- fully responsive blocks to different screen sizes
 
-= A question that someone might have =
+### Prerequisites
 
-An answer to that question.
+For this project to run, make sure these software are installed:
 
-= What about foo bar? =
+- docker 
+- node
+- code editor
+- wordpress/env
 
-Answer to foo bar dilemma.
+and you have admin access to the terminal. 
 
-== Screenshots ==
+Please follow [these](https://developer.wordpress.org/block-editor/getting-started/devenv/) instructions.
 
-1. This screen shot description corresponds to screenshot-1.(png|jpg|jpeg|gif). Note that the screenshot is taken from
-the /assets directory or the directory that contains the stable readme.txt (tags or trunk). Screenshots in the /assets
-directory take precedence. For example, `/assets/screenshot-1.png` would win over `/tags/4.3/screenshot-1.png`
-(or jpg, jpeg, gif).
-2. This is the second screen shot
+### Installing
 
-== Changelog ==
+To run this custom theme locally:
+1. Make sure the pre-requisites are done
+2. Start the wordpress local container from docker
+3. Download the .zip file of the latest release
+4. Follow block instalation instructions below
 
-= 0.1.0 =
-* Release
+**To install the plugin follow [these](https://www.wpbeginner.com/beginners-guide/step-by-step-guide-to-install-a-wordpress-plugin-for-beginners/) instructions**
 
-== Arbitrary section ==
+## License
 
-You may provide arbitrary sections, in the same format as the ones above. This may be of use for extremely complicated
-plugins where more information needs to be conveyed that doesn't fit into the categories of "description" or
-"installation." Arbitrary sections will be shown below the built-in sections outlined above.
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
