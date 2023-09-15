@@ -9,6 +9,17 @@
 	"description": "Example block scaffolded with Create Block tool.",
 	"example": {},
 	"keywords": ["cutom", "block","smiley"],
+	"styles": [
+		{
+			"name": "default",
+			"label": "Default",
+			"isDefault": true
+		},
+		{
+			"name": "border",
+			"label": "Border"
+		}
+	],
 	"attributes": {
 		"content": {
 			"type": "string",
