@@ -1,11 +1,15 @@
-# Custom Gutenberg block
+<h1 align="center">
+  Custom Gutenberg Block
+</h1>
 
-This project contains two custom gutenberg blocks for wordpress built using pure PHP and no plugins.
+<p align="center">
+	This project contains two custom gutenberg blocks for wordpress built using pure PHP and no plugins.
+</p>
 
 ![custom-blocks](https://github.com/codeLearnerrr/custom-gutenberg-block/assets/44307139/5cd4138f-6c8e-4685-9408-c74a0a222da6)
 
 
-### Features
+## Features
 - fully editable text
 - customizable text color
 - customizable backgrond color
@@ -14,20 +18,20 @@ This project contains two custom gutenberg blocks for wordpress built using pure
   - another with text and image
 - fully responsive blocks to different screen sizes
 
-### Prerequisites
+## Prerequisites
 
 For this project to run, make sure these software are installed:
 
-- docker 
+- docker
 - node
 - code editor
 - wordpress/env
 
-and you have admin access to the terminal. 
+and you have admin access to the terminal.
 
 Please follow [these](https://developer.wordpress.org/block-editor/getting-started/devenv/) instructions.
 
-### Installing
+## Installing
 
 To run this custom theme locally:
 1. Make sure the pre-requisites are done
